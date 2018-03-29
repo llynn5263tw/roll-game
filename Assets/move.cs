@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class move : MonoBehaviour {
+
+public class move : MonoBehaviour
+{
 
     Rigidbody rb;
 
@@ -16,8 +16,9 @@ public class move : MonoBehaviour {
     DateTime curr;
     public float speed;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
 
         rb = GetComponent<Rigidbody>();
 
@@ -27,17 +28,20 @@ public class move : MonoBehaviour {
         myTime.text = "10";
 
         curr = DateTime.Now;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
         // transform.Translate(x, 0, z);
 
-        rb.AddForce(new Vector3(x, 0, z)*speed);
+        rb.AddForce(new Vector3(x, 0, z) * speed);
+
 
         TimeSpan ts = DateTime.Now - curr;
 
@@ -49,8 +53,8 @@ public class move : MonoBehaviour {
             }
             else
             {
-                    myTime.text = "0";
-                    winText.text = "YOU LOSE!";
+                myTime.text = "0";
+                winText.text = "YOU LOSE!";
             }
         }
     }
@@ -70,5 +74,5 @@ public class move : MonoBehaviour {
             }
         }
 
-    }	
+    }
 }
